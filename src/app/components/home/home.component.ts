@@ -12,7 +12,10 @@ import { ModalForoComponent } from './modal-foro/modal-foro.component';
 export class HomeComponent implements OnInit {
   dummyData: any[] 
 
-  constructor(private dialog: MatDialog, public archivoServicio: ArchivosService) {
+  constructor(
+    private dialog: MatDialog, 
+    public archivoServicio: ArchivosService
+  ) {
     this.dummyData = archivoServicio.getAllArchivos()
   }
 

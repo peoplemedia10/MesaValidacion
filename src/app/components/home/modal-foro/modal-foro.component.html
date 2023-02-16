@@ -7,56 +7,80 @@
 </div>
 
 <mat-divider class="-mx-6 text-border"></mat-divider>
-<mat-dialog-content class="px-1">
-
-    <div class="flex flex-col">
-        <div class="flex-1">
-            <div class="user-profile">
-                <div class="user-pic"></div>
-                <div class="user-name">
-                    User Name
-                </div>
-            </div>
-            <mat-divider></mat-divider>
-            <div class="user-list">
-                <mat-list>
-                    <mat-list-item>
-                        <mat-icon class="mat-list-icon">account_circle</mat-icon>
-                        <div mat-line>user.name</div>
-                    </mat-list-item>
-                </mat-list>
-            </div>
+<div class="relative">
+    <mat-dialog-content class="px-1">
+        <!-- Seccion ver comentarios: -->
+        <div class="flex flex-col pb-40 p-8">
+            <ul>    
+                <!-- Comentarios de otros: -->
+                <li class="flex">
+                    <mat-card class="bg-green-700 mb-7 rounded-br-lg">
+                        <mat-card-content>
+                            <div class="w-96">
+                                <div class="order-2 text-slate-200 text-xs">
+                                    <p>&nbsp;&nbsp;Pepe Lopez - 23 Feb, 2023 - 09:00 AM</p>
+                                </div>
+                                <p class="order-1 text-white text-base mt-1">
+                                    Este es un comentario de prueba para el foro de discusion del
+                                    archivo. Este es un comentario de prueba para el foro de discusion del
+                                    archivo.
+                                </p>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </li>
+                <li class="flex">
+                    <mat-card class="bg-green-700 mb-7 rounded-br-lg">
+                        <mat-card-content>
+                            <div class="w-96">
+                                <div class="order-2 text-slate-200 text-xs">
+                                    <p>&nbsp;&nbsp;Pepe Lopez - 23 Feb, 2023 - 09:00 AM</p>
+                                </div>
+                                <p class="order-1 text-white text-base mt-1">
+                                    Este es un comentario de prueba para el foro de discusion del
+                                    archivo. Este es un comentario de prueba para el foro de discusion del
+                                    archivo.
+                                </p>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </li>
+            
+                <!-- Comentarios de autor: -->
+                <li class="flex justify-end">
+                    <mat-card class="bg-cyan-600 mb-7 rounded-bl-lg">
+                        <mat-card-content>
+                            <div class="w-96">
+                                <div class="order-2 text-slate-200 text-xs">
+                                    <p>&nbsp;&nbsp;Jose Tapia - 23 Feb, 2023 - 09:00 AM</p>
+                                </div>
+                                <p class="order-1 text-white text-base mt-1">
+                                    Este es un nuevo comentario x2
+                                </p>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </li>
+            </ul>
         </div>
+    </mat-dialog-content>
 
-        <div class="">
-            <mat-list>
-                <mat-list-item>
-                    <div mat-line>
-                        <div class="user-icon">
-                            <mat-icon mat-list-icon color="primary">portrait</mat-icon>
-                        </div>
-                        <div class="message-text">
-                            <div class="user-date-label"><span>chat.userName</span> 9.18 am</div>
-                            <div class="message">chat.message</div>
-                        </div>
-                    </div>
-                </mat-list-item>
-            </mat-list>
-    
-            <div class="">
-                <div class="inline-block">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Mensaje</mat-label>
-                        <input matInput placeholder="Ingresa tu comentario" class="chat-input">
-                    </mat-form-field>
-                </div>
-                <div class="button-container inline-block">
-                    <button class="mat-mini-fab">
-                        <mat-icon>done</mat-icon>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-</mat-dialog-content>
+    <!-- Seccion agregar comentario: -->
+    <div class="absolute bottom-0 w-full">
+        <form action="#" method="post">
+            <input 
+                placeholder="Agrega un comentario" 
+                name="comment"
+                class="bg-gray-50 border border-gray-300 text-gray-900 
+                text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+                block w-10/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 
+                dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+                dark:focus:border-blue-500 inline-block"
+            >
+            
+            <button type="submit" class="mat-raised-button bg-green ml-2 inline-block">
+                Enviar
+            </button>
+        </form>
+    </div>
+</div>

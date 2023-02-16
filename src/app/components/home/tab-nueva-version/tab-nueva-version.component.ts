@@ -11,6 +11,8 @@ export class TabNuevaVersionComponent implements OnInit {
     descripcionLarga: '',
     tokenFile: ''
   }
+  isDragover = false;
+  file: File | null = null;
 
   constructor() { }
 
@@ -33,5 +35,9 @@ export class TabNuevaVersionComponent implements OnInit {
   
       reader.readAsArrayBuffer(inputNode.files[0]);
     }
+  }
+
+  storeFile($event: Event) {
+    
   }
 }
