@@ -22,7 +22,7 @@
 
         <div class="flex flex-row space-x-4">
             <div 
-                class="border-2 border-black border-dotted w-56 h-16 rounded text-center 
+                class="border-2 border-black border-dotted w-56 h-28 rounded text-center 
                 cursor-pointer transition duration-500 hover:text-white hover:bg-gray-400 
                 hover:border-gray-400 hover:border-solid text-xl"
                 (dragend)="isDragover = false"
@@ -36,18 +36,19 @@
                     'bg-gray-400 border-gray-400 border-solid': isDragover
                 }"
             >
-                <p class="text-orange-600">
+                <p class="text-orange-600 hover:text-white">
                     Subir archivo editable
                 </p>
                 <input 
                     type="file"
                     (change)="storeFile($event)"
-                    class="block text-sm border border-gray-300 rounded-lg cursor-pointer w-full mt-2"
+                    class="block text-sm border border-gray-300 rounded-lg 
+                    cursor-pointer w-full mt-10 hover:text-white align-middle"
                 >
             </div>
 
             <div 
-                class="border-2 border-black border-dotted w-56 h-16 rounded text-center 
+                class="border-2 border-black border-dotted w-56 h-28 rounded text-center 
                 cursor-pointer transition duration-500 hover:text-white hover:bg-indigo-400 
                 hover:border-indigo-400 hover:border-solid text-xl"
                 (dragend)="isDragover = false"
@@ -61,13 +62,14 @@
                     'bg-indigo-400 border-indigo-400 border-solid': isDragover
                 }"
             >
-                <p class="text-orange-600">
+                <p class="text-orange-600 hover:text-white">
                     Subir archivo firmado
                 </p>
                 <input 
                     type="file" 
                     (change)="storeFile($event)"
-                    class="block text-sm border border-gray-300 rounded-lg cursor-pointer w-full mt-2"
+                    class="block text-sm border border-gray-300 rounded-lg 
+                    cursor-pointer w-full mt-10 hover:text-white align-middle"
                 >
             </div>
         </div>
