@@ -1,0 +1,46 @@
+<form>
+    <div class="flex flex-col text-center">
+        <div class="mt-5 w-full">
+            <mat-form-field >
+                <mat-label>Descripción Corta</mat-label>
+                <input type="text" formControlName="titulo" matInput required>
+            </mat-form-field>
+        </div>
+        <div class="mt-5 w-full">
+            <mat-form-field>
+                <mat-label>Descripción Larga</mat-label>
+                <input type="textarea"  matInput required>
+                <textarea matInput formControlName="descripcion" required></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="flex justify-center item-center mb-3 mt-10">
+        <button 
+            type="button" 
+            class="bg-gray-300 hover:bg-gray-600 mat-raised-button mr-5" 
+            (click)="fileInput.click()"
+        >
+            Subir editable
+        </button>
+        <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+
+        <button 
+            type="button" 
+            class="bg-blue-300 hover:bg-blue-600 mat-raised-button mr-5" 
+            (click)="fileInput.click()"
+        >
+            Subir firmado
+        </button>
+        <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+
+        <button 
+            class="bg-green-500 hover:bg-green-600 mat-raised-button" 
+            color="success" 
+            type="submit"
+        >
+            Agregar Actividad
+        </button>
+    </div>
+</form>
+

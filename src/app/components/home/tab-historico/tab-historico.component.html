@@ -1,0 +1,63 @@
+<table [dataSource]="this.dataSource" class="w-full" mat-table matSort>
+
+    <ng-container *ngFor="let column of columns;">
+        <ng-container *ngIf="column.property== 'version'" [matColumnDef]="column.property">
+            <th *matHeaderCellDef class="uppercase" mat-header-cell mat-sort-header> {{ column.label }}</th>
+            <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>Version #{{ row.version }}</td>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngFor="let column of columns;">
+        <ng-container *ngIf="column.property== 'descripcion'" [matColumnDef]="column.property">
+            <th *matHeaderCellDef class="uppercase" mat-header-cell mat-sort-header> {{ column.label }}</th>
+            <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>{{ row.decripcionVersion }}</td>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngFor="let column of columns;">
+        <ng-container *ngIf="column.type === 'button'" [matColumnDef]="column.property">
+            <th *matHeaderCellDef class="uppercase" mat-header-cell mat-sort-header> 
+                {{ column.label }}
+            </th>
+            <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>
+                <div class="flex justify-between">
+                    <a 
+                        (click)="openModalUpdate(row)"
+                        matTooltip="Editar Materia"
+                        class="w-15 h-10 leading-none flex items-center 
+                        justify-center text-primary"
+                        mat-icon-button
+                    >
+                        Descargar editable 
+                    </a>
+
+                    <a 
+                        (click)="openModalUpdate(row)"
+                        matTooltip="Editar Materia"
+                        class="w-15 h-10 leading-none flex items-center 
+                        justify-center text-primary"
+                        mat-icon-button
+                    >
+                        Descargar Firmado 
+                    </a>
+
+                    <a 
+                        (click)="deleteGrupo(row)"
+                        matTooltip="Eliminar Materia"
+                        class="w-15 h-10 leading-none flex items-center justify-center 
+                        ml-2 text-primary"
+                        mat-icon-button
+                    >
+                        Ver detalles
+                    </a>
+                </div>
+            </td>
+        </ng-container>
+    </ng-container>
+
+    <tr *matHeaderRowDef="visibleColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: visibleColumns;"
+        class="hover:bg-hover trans-ease-out cursor-pointer"
+        mat-row></tr>
+</table>
+<mat-paginator #paginator [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
