@@ -1,7 +1,5 @@
-import { IUsuario } from "./IUsuario.model";
-
 export interface IComentarios {
-    fecha: number,
-    decripcionVersion: string,
-    usuario?: IUsuario[]
+    usuarioId: number,
+    fecha: Date,
+    decripcionVersion: string
 }

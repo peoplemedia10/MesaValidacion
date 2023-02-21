@@ -1,7 +1,10 @@
 import { Component, OnInit, Inject, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ArchivosService } from 'src/app/servicios/archivos.service';
+import { FormBuilder } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IComentarios } from 'src/app/modelos/IComentarios.model';
+import { IUsuario } from 'src/app/modelos/IUsuario.model';
 import { ForoService } from 'src/app/servicios/foro.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'vex-modal-foro',
@@ -9,18 +12,24 @@ import { ForoService } from 'src/app/servicios/foro.service';
   styleUrls: ['./modal-foro.component.scss']
 })
 export class ModalForoComponent implements OnInit, AfterViewInit {
+  @ViewChild('list') list?: ElementRef<HTMLUListElement>;
   panelOpenState = false
-  @ViewChild('list') list?: ElementRef<HTMLDivElement>;
+  listaComentarios: IComentarios[]
+  usuario: IUsuario
+  checkoutForm = this.formBuilder.group({
+    comentario: ''
+  });
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public objeto: any,
-    private dialogRef: MatDialogRef<ModalForoComponent>,
-    public archivoServicio: ArchivosService,
-    public comentariosServicio: ForoService
+    public usuariosServicio: UsuariosService,
+    public comentariosServicio: ForoService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
-    
+    this.usuario = this.usuariosServicio.getUsuarioById(1)
+    this.listaComentarios = this.comentariosServicio.getAllComentarios()
   }
 
   ngAfterViewInit() {
@@ -28,4 +37,13 @@ export class ModalForoComponent implements OnInit, AfterViewInit {
     this.list?.nativeElement.scrollTo({ top: maxScroll, behavior: 'smooth' });
   }
 
+  onSubmit(): void {
+    this.comentariosServicio.postComentario({
+      usuarioId: this.usuario.id,
+      fecha: new Date(),
+      decripcionVersion: this.checkoutForm.value.comentario as string
+    })
+    
+    this.checkoutForm.reset();
+  }
 }

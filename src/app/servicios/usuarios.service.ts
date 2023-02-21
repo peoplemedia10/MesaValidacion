@@ -10,6 +10,10 @@ export class UsuariosService {
     {
       id: 1,
       nombre: 'Jose Tapia'
+    },
+    {
+      id: 2,
+      nombre: 'Luis Lopez'
     }
   ]
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'vex-modal-doc-info',
@@ -10,8 +10,7 @@ export class ModalDocInfoComponent implements OnInit {
   panelOpenState = false
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public objeto: any,
-    private dialogRef: MatDialogRef<ModalDocInfoComponent>
+    @Inject(MAT_DIALOG_DATA) public objeto: any
   ) { }
 
   ngOnInit(): void {
